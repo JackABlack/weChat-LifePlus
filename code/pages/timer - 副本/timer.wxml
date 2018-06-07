@@ -1,0 +1,17 @@
+<view class='fade'>
+  <view class='usrInfo'>
+    <image class='avtar' src='{{avtar}}'></image>
+    <text style='display:block'>欢迎您：{{name}}</text>
+  </view>
+  <view>
+    <view class="timer">
+      <text style="{{disp?'font-size:36px':'font-size:70px'}}">{{sliderValue}}:00</text>
+      <view wx-if="{{disp}}" >
+        <slider bindchange="slider1" min="1" max="200" value="{{sliderValue}}" show-value/>
+      </view>
+      <view catchtap='timerStart' id='button'wx-if="{{disp}}">
+        <text class='button_name'>开始探索吧</text>
+      </view>
+    </view>
+  </view>
+</view>

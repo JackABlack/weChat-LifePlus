@@ -1,0 +1,35 @@
+<!--菜单页，还没有链接页面-->
+<view class="{{menuOpen?'menu':'menuout'}}">
+  <image class='close' bindtap='close' src='/pages/main/element/icon - close@3x.png'></image>
+  <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
+  <view class='items'>
+    <view class='overview'>
+       <view bindtap='toMain'>
+        <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
+        <text bindtap='toMain'>主页</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toOverview'>
+        <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
+        <text bindtap='toOverview'>记录纵览</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toProfile'>
+        <image bindtap='toProfile' class='icon' src='/pages/main/element/icon - Profile@3x.png'></image>
+        <text bindtap='toProfile'>排行榜</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toTimeline'>
+        <image bindtap='toTimeline' class='icon' src='/pages/main/element/icon - Timeline@3x.png'></image>
+        <text bindtap='toTimeline'>时间轴</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toSetting'>
+        <image bindtap='toSetting' class='icon' src='/pages/main/element/icon - Settings@3x.png'></image>
+        <text bindtap='toSetting'>设置</text>
+      </view>
+
+    </view>
+  </view>
+</view>
+<image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>

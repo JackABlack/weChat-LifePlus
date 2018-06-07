@@ -1,0 +1,154 @@
+
+/***********************
+*                      *
+*下面写的是 时间 的CSS  *
+*                      *
+************************/
+.date{
+  background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/timeline.jpg');
+  width: 750rpx;
+  height: 400 rpx;
+  text-align: center;
+  color: white;
+  font-family: '黑体';
+}
+.day{
+  font-size: 134rpx;
+  margin-top: 34rpx;
+  display: block;
+}
+.week{
+  font-size: 48rpx;
+  margin-top: 15rpx;
+  display: block;
+  
+}
+.month{
+  font-size: 21rpx;
+  margin-top: 20rpx;
+  margin-bottom: 80rpx;
+  display: block;
+  color: gray;
+}
+
+.logs{
+  font-family: '黑体';
+  position: absolute;
+  left: 60rpx;
+  z-index: -1;
+}
+.member{
+  display: inline;
+  font-size: 24rpx;
+  color: gray;
+  margin-left: 20rpx;
+}
+.membox{
+  margin-left: 210rpx;
+}
+.money{
+  color: gray;
+  font-size: 22rpx;
+  display: block;
+  margin-top: 22rpx;
+  margin-left: 230rpx;
+}
+.title{
+  font-size: 30rpx;
+  font-weight: bold;
+  position: absolute;
+  left:230rpx;
+  margin-top: 10rpx;
+}
+.time{
+  margin-left: 60rpx;
+  font-size: 24rpx;
+  color: black;
+}
+.green{
+  color:#8fe2d8;
+  size: 31rpx;
+  font-weight: bold;
+}
+.red{
+  color:#ff6b90;
+  size: 31rpx;
+  font-weight: bold;
+}
+
+/***********************
+*                      *
+*下面写的是 菜单 的CSS  *
+*                      *
+************************/
+.more{
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 30rpx;  
+}
+
+.menuBotton{
+  background-color: #77B7FF;
+  width: 100%;
+  height: 62rpx;
+  display: block;
+}
+.menu{
+  position: fixed;
+  background-color: #77b7ff;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  animation: slidein 0.5s ease alternate;
+}
+@keyframes slidein{
+  0%{left:-750rpx;}
+  100%{left: 0rpx;}
+}
+.menuout{
+  position: fixed;
+  background-color: #77b7ff;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  left: -750rpx;
+  animation: slideout 0.5s ease;
+}
+@keyframes slideout{
+  0%{left:0rpx;}
+  100%{left: -750rpx;}
+}
+.avatar{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 41%;
+  top: 98rpx;
+}
+.close{
+  width: 38rpx;
+  height: 38rpx;
+  margin-top: 6rpx;
+  margin-left: 30rpx;
+}
+.divider{
+  width: 552rpx;
+  height: 2rpx;
+  margin-left: 100rpx;
+}
+.overview{
+  color: white;
+  font-family: '华文细黑';
+  font-size: 26rpx;
+  vertical-align: middle;
+  margin-top: 268rpx;
+}
+.icon{
+  width: 44rpx;
+  height: 44rpx;
+  margin-top: 4rpx;
+  margin-left: 184rpx;
+  margin-right: 74rpx;
+}
+/* pages/timeline/timeline.wxss */

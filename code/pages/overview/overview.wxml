@@ -1,0 +1,74 @@
+<!--菜单页，还没有链接页面-->
+<wxs module="filters" src='../../utils/fliter.wxs'></wxs>
+<view class="{{menuOpen?'menu':'menuout'}}">
+  <image class='close' bindtap='close' src='/pages/main/element/icon - close@3x.png'></image>
+  <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
+  <view class='items'>
+    <view class='overview'>
+      <view bindtap='toMain'>
+        <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
+        <text bindtap='toMain'>主页</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toOverview'>
+        <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
+        <text bindtap='toOverview'>记录纵览</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toProfile'>
+        <image bindtap='toProfile' class='icon' src='/pages/main/element/icon - Profile@3x.png'></image>
+        <text bindtap='toProfile'>排行榜</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toTimeline'>
+        <image bindtap='toTimeline' class='icon' src='/pages/main/element/icon - Timeline@3x.png'></image>
+        <text bindtap='toTimeline'>时间轴</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toSetting'>
+        <image bindtap='toSetting' class='icon' src='/pages/main/element/icon - Settings@3x.png'></image>
+        <text bindtap='toSetting'>设置</text>
+      </view>
+
+    </view>
+  </view>
+</view>
+<view class='menuButton'>
+  <image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
+  <text>\n\n</text>
+</view>
+<scroll-view wx:if='{{!menuOpen}}' scroll-x="true" style=" white-space: nowrap; display: flex" class='month'>
+  <view style='display:inline;'>
+    <text class='monthButton'>一月  </text>
+    <text class="monthButton">二月  </text>
+    <text class='monthButton'>三月  </text>
+    <text class="monthButton">四月  </text>
+    <text class='monthButton'>五月  </text>
+    <text class="monthButton">六月  </text>
+    <text class='monthButton'>七月  </text>
+    <text class="monthButton">八月  </text>
+    <text class='monthButton'>九月  </text>
+    <text class="monthButton">十月  </text>
+    <text class='monthButton'>十一月  </text>
+    <text class="monthButton">十二月  </text>
+  </view>
+</scroll-view>
+<view class='context'>
+  <text class='total' style='display:block;'>{{total}}</text>
+  <text class='zh-total' style='display:block;'>总计</text>
+  <view class='detail'>
+    <view style='display:block;margin-top: 20rpx;'>
+      <text class='green'>○</text>
+      <text class='zh-succ'>专注完成</text>
+      <text class='succ'>{{success}}      {{filters.toFix(success/total*100)}}%</text>
+    </view>
+    <image class='divider1' src='/pages/main/element/Divider@3x.png'></image>
+    <view style='display:block;margin-top: 20rpx;'>
+      <text class='red'>○</text>
+      <text class='zh-succ'>专注失败</text>
+      <text class='succ' >{{total-success}}      {{filters.toFix((total-success)/total*100)}}%</text>
+      <image class='divider1' src='/pages/main/element/Divider@3x.png'></image>
+      <view class='blank'>  </view>
+    </view>
+  </view>
+</view>

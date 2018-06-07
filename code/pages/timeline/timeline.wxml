@@ -1,0 +1,63 @@
+<!--菜单页，还没有链接页面-->
+<view class="{{menuOpen?'menu':'menuout'}}">
+  <image class='close' bindtap='close' src='/pages/main/element/icon - close@3x.png'></image>
+  <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
+  <view class='items'>
+    <view class='overview'>
+      <view bindtap='toMain'>
+        <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
+        <text bindtap='toMain'>主页</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toOverview'>
+        <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
+        <text bindtap='toOverview'>记录纵览</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toProfile'>
+        <image bindtap='toProfile' class='icon' src='/pages/main/element/icon - Profile@3x.png'></image>
+        <text bindtap='toProfile'>排行榜</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toTimeline'>
+        <image bindtap='toTimeline' class='icon' src='/pages/main/element/icon - Timeline@3x.png'></image>
+        <text bindtap='toTimeline'>时间轴</text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toSetting'>
+        <image bindtap='toSetting' class='icon' src='/pages/main/element/icon - Settings@3x.png'></image>
+        <text bindtap='toSetting'>设置</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='menuBotton'>
+  <image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
+</view>
+<view class='date'>
+  <text>\n</text>
+  <!--这个换行神奇地解决了css的某个问题！-->
+  <text class='day'>{{day}}</text>
+  <text class='week'>{{week}}</text>
+  <text class='month'>{{month}}\n\n\n\n</text>
+</view>
+<view id='logs' class='logs'>
+  <scroll-view scroll-y='true'>
+    <view wx:for="{{logsList}}" wx:key='time'>
+      <view class='scroll'>
+        <view>
+          <text class="{{item.status?'green':'red'}}">○</text>
+          <text class='time'>{{item.time}}</text>
+          <text class='title'>{{item.name}}</text>
+        </view>
+        <text class='money' wx:if='{{item.status}}'>{{item.amount}}元 · 专注成功</text>
+        <text class='money' wx:if='{{!item.status}}'>{{item.amount}}元 · 专注失败</text>
+        <view class='membox'>
+          <view class='member' wx:for="{{item.member}}" wx:for-item="member">
+            {{member}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

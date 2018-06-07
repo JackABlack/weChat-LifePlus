@@ -1,0 +1,66 @@
+<!--菜单页，还没有链接页面-->
+<view class="{{menuOpen?'menu':'menuout'}}">
+  <text class='close' bindtap='close'>×</text>
+  <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
+  <view class='overview'>
+    <view >
+       <view bindtap='toMain'>
+        <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
+        <text bindtap='toMain'>主 页<text class='arror'>></text></text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toOverview'>
+        <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
+        <text bindtap='toOverview'>记录纵览<text class='arror'>></text></text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toProfile'>
+        <image bindtap='toProfile' class='icon' src='/pages/main/element/icon - Profile@3x.png'></image>
+        <text bindtap='toProfile'>排行榜<text class='arror'>></text></text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toTimeline'>
+        <image bindtap='toTimeline' class='icon' src='/pages/main/element/icon - Timeline@3x.png'></image>
+        <text bindtap='toTimeline'>时间轴<text class='arror'>></text></text>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='toSetting'>
+        <image bindtap='toSetting' class='icon' src='/pages/main/element/icon - Settings@3x.png'></image>
+        <text bindtap='toSetting'>设 置<text class='arror'>></text></text>
+      </view>
+
+    </view>
+  </view>
+</view>
+<image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
+<view wx-if='{{fail}}' bindtap='closeFail'>
+  <image class='fail' src='https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/fail.png' ></image>
+</view>
+<!--计时选择器核心组件-->
+<image class='new' wx-if='{{!addTimer}}' bindtap='add' src='/pages/main/element/Add Button@3x.png'></image>
+<view wx-if='{{addTimer && !timerStart}}' class='section'>
+  <picker mode="time" value="{{time}}" start="{{timeNow}}" end="23:59" bindchange="bindTimeChange">
+    <view class="picker">
+      {{time}}
+    </view>
+  </picker>
+</view>
+
+<button class='start' wx-if='{{!timerStart && addTimer}}' bindtap='start'>
+  <text class='fuckNoFontClolr'>start</text>
+</button>
+
+<!--计时器核心组件-->
+<text class='countdown' wx-if='{{timerStart && addTimer && !fail}}'>{{wxTimer}}</text>
+<!--
+<view class="wrap">
+  <view class="circle-box">
+    <canvas class="circle" style="width:200px; height:200px;" canvas-id="canvasArcCir">
+    </canvas>
+    <canvas class="circle" style="z-index: -5; width:200px; height:200px;" canvas-id="canvasCircle">
+    </canvas>
+    <view class="draw_btn" bindtap="drawCircle">{{timeLeft}}</view>
+  </view>
+</view>
+
+画圆-->
