@@ -33,9 +33,11 @@
   </view>
 </view>
 <image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
+<!--
 <view wx-if='{{fail}}' bindtap='closeFail'>
   <image class='fail' src='https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/fail.png' ></image>
 </view>
+-->
 <!--计时选择器核心组件-->
 <image class='new' wx-if='{{!addTimer}}' bindtap='add' src='/pages/main/element/Add Button@3x.png'></image>
 <view wx-if='{{addTimer && !timerStart}}' class='section'>
