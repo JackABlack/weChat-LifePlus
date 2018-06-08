@@ -2,7 +2,7 @@
 const alter = require('../../utils/alter.js');
 const timer = require('../../utils/wxTimer.js');
 
-
+ 
 Page({
 
   /**
@@ -10,8 +10,11 @@ Page({
    */
   data: {
     menuOpen: false,
-    addTimer: false,
+    addTimer: true,
     timerStart: false,
+    multi:false,
+    join:false,
+    wannaStart:false,
     //頭像獲取
     userInfo: {},
     hasUserInfo: false,
@@ -23,6 +26,8 @@ Page({
     during: '',//持续时间
     timeLeft: '00:00:00',//剩余时间
     fail:false,//是否失败
+    money:0,
+    title:''
   },
   /**
    * 菜单栏
@@ -42,28 +47,54 @@ Page({
    */
 
   add: function () {
-    this.setData({
-      addTimer: true,
-      timeNow: alter.formatTime(new Date),
-      time: alter.formatTime(new Date),
-      today: alter.formatRealDate(new Date)
-    })
+    
   },
-
+gonnaStart:function()
+{
+  this.setData({
+    wannaStart:true,
+  })
+},
   bindTimeChange: function (e) {
     this.setData({
       time: e.detail.value,
       endTime: Date.parse((this.data.today + e.detail.value)),//结束时间的时间戳
     })
   },
-
+  title:function(e){
+    this.setData({
+      title:e.detail.value
+    })
+  },
+    money: function (e) {
+    this.setData({
+      money: e.detail.value
+    })
+  },
   /**
    * 计时器
    */
 
   start: function () {
-    var timeNow = Date.parse(this.data.today + this.data.timeNow)//当前时间的时间戳
+    var timeNow = Date.parse(this.data.today + this.data.timeNow )//当前时间的时间戳
     var today = this.data.today
+    wx.requestPayment(
+      {
+        'timeStamp': '',
+        'nonceStr': '',
+        'package': '',
+        'signType': 'MD5',
+        'paySign': '',
+        'success': function (res) { },
+        'fail': function (res) { 
+          wx.showToast({
+            title: '根据相关规则,暂时无法支付',
+            icon:'none',
+
+          })
+        },
+        'complete': function (res) { }
+      })
     this.setData({
       during: alter.formatSeconds((this.data.endTime - timeNow) / 1000)//持续时间的字符串表达
     })
@@ -81,15 +112,27 @@ Page({
           mask: true,
         })
         that.setData({
-          addTimer: false,
+          addTimer: true,
           timerStart: false,
+          wannaStart:false,
         })
         wxTimer.stop();
       },
     })
     wxTimer.start(this);
   },
-
+  switcher:function(){
+    this.setData({
+      multi:!this.data.multi
+    })
+  },
+  joinIn:function(){
+    this.setData({
+      addTimer:false,
+      timerStart:true,
+      join:true
+    })
+  },
   closeFail:function(){
     this.setData({
       fail:false,
@@ -168,7 +211,11 @@ Page({
     })
   },
 
-
+  create:function(){
+    wx.navigateTo({
+      url: '../multi/multi',
+    })
+  },
 
   getUserInfo: function (e) {
     console.log(e)
@@ -179,8 +226,18 @@ Page({
     })
   },
 
-
+goBack:function(){
+  this.setData({
+    wannaStart:false,
+  })
+},
   onLoad: function (options) {
+    this.setData({
+      timeNow: alter.formatTime(new Date),
+      time: alter.formatTime(new Date),
+      today: alter.formatRealDate(new Date),
+      during:'0:10:0'
+    })
     //加載頭像
     if (getApp().globalData.userInfo) {
       this.setData({

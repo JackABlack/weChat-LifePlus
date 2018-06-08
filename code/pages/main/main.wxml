@@ -3,15 +3,15 @@
   <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
   <view class='overview'>
-    <view >
-       <view bindtap='toMain'>
+    <view>
+      <view bindtap='toMain'>
         <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
         <text bindtap='toMain'>主 页<text class='arror'>></text></text>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toOverview'>
         <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
-        <text bindtap='toOverview'>记录纵览<text class='arror'>></text></text>
+        <text bindtap='toOverview'>记录总览<text class='arror'>></text></text>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toProfile'>
@@ -32,28 +32,49 @@
     </view>
   </view>
 </view>
-<image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
+<text class='close' bindtap='goBack' wx-if='{{wannaStart && !timerStart}}'>×</text>
+<image class='more' bindtap='open' wx-if='{{!wannaStart}}' src='/pages/main/element/icon@3x.png'></image>
+<text class='switch' wx:if="{{!timerStart}}" bindtap='switcher'><text style="{{!multi?'':'color:#3f4555'}}">单人</text> | <text style="{{!multi?'color:#3f4555':''}}">多人</text></text>
 <!--
 <view wx-if='{{fail}}' bindtap='closeFail'>
   <image class='fail' src='https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/fail.png' ></image>
 </view>
 -->
 <!--计时选择器核心组件-->
-<image class='new' wx-if='{{!addTimer}}' bindtap='add' src='/pages/main/element/Add Button@3x.png'></image>
-<view wx-if='{{addTimer && !timerStart}}' class='section'>
+<view wx-if='{{addTimer && !timerStart}}' class="{{wannaStart?'section1':'section'}}">
   <picker mode="time" value="{{time}}" start="{{timeNow}}" end="23:59" bindchange="bindTimeChange">
-    <view class="picker">
+    <view>
       {{time}}
     </view>
   </picker>
 </view>
+<view wx-if='{{!join && wannaStart}}'>
+<input class='title' type='text' bindinput='title' placeholder='请输入您的专注内容'></input>
+<input class='money' type='text' bindinput='money' placeholder='请选择您的专注金额'></input>
+</view>
 
-<button class='start' wx-if='{{!timerStart && addTimer}}' bindtap='start'>
-  <text class='fuckNoFontClolr'>start</text>
+<view wx-if='{{join}}'>
+  <input class='money' type='text' bindinput='money' placeholder='房间号'> </input>
+  <button class='start2' wx-if='{{join}}' bindtap='join'>
+    <text class='fuckNoFontClolr'>加入</text>
+  </button>
+</view>
+<button class='start' wx-if='{{!timerStart && !multi && !wannaStart}}' bindtap='gonnaStart'>
+  <text class='fuckNoFontClolr'>开始专注</text>
+</button>
+<button class='start' wx-if='{{!timerStart && !multi && wannaStart}}' bindtap='start'>
+  <text class='fuckNoFontClolr'>设置完毕</text>
+</button>
+
+<button class='start1' wx-if='{{!timerStart && multi}}' bindtap='create' open-type='share'>
+  <text class='fuckNoFontClolr'>创建房间</text>
+</button>
+<button class='start' wx-if='{{!timerStart && multi}}' bindtap='joinIn'>
+  <text class='fuckNoFontClolr'>加入房间</text>
 </button>
 
 <!--计时器核心组件-->
-<text class='countdown' wx-if='{{timerStart && addTimer && !fail}}'>{{wxTimer}}</text>
+<text class='countdown' wx-if='{{timerStart && !fail}}'>{{wxTimer}}</text>
 <!--
 <view class="wrap">
   <view class="circle-box">

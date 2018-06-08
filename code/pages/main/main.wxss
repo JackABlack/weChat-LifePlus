@@ -1,16 +1,62 @@
-page{
-  background-image:url(https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/back.png);
-  background-size: 100%,100%;
+page {
+  background-image: url(https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/back.png);
+  background-size: 100%, 100%;
 }
-.fail{
-  width:400rpx;
-  height:400rpx;
+
+.money {
+  display: block;
+  color: white;
+  position: absolute;
+  top: 514rpx;
+  left: 160rpx;
+  z-index: -1;
+  animation: fadein 0.5s ease;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  color: white;
+  position: absolute;
+  top: 630rpx;
+  left: 160rpx;
+  z-index: -1;
+  animation: fadein 0.5s ease;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.fail {
+  width: 400rpx;
+  height: 400rpx;
   position: absolute;
   left: 175rpx;
-  top:340rpx;
+  top: 340rpx;
 }
-.none{
+
+.picker1 {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.none {
   opacity: 0;
+}
+
+.switch {
+  color: white;
+  font-family: '华文细黑';
+  border: 1px solid white;
+  border-radius: 5px;
+  padding-left: 6px;
+  padding-bottom: 2px;
+  padding-right: 6px;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 29%;
 }
 
 /*
@@ -19,16 +65,15 @@ page{
 *
 */
 
-
-.more{
+.more {
   width: 34rpx;
   height: 34rpx;
-  margin-left: 30rpx;  
+  margin-left: 30rpx;
   margin-top: 30rpx;
   z-index: -1;
 }
 
-.menu{
+.menu {
   position: fixed;
   background-color: #77b7ff;
   width: 100%;
@@ -36,18 +81,18 @@ page{
   z-index: 0;
   animation: slidein 0.5s ease alternate;
 }
-.countdown{
-  color: white;
-  position: absolute;
-  top: 510rpx;
-  left:300rpx;
-}
-@keyframes slidein{
-  0%{left:-750rpx;}
-  100%{left: 0rpx;}
+
+@keyframes slidein {
+  0% {
+    left: -750rpx;
+  }
+
+  100% {
+    left: 0rpx;
+  }
 }
 
-.menuout{
+.menuout {
   position: fixed;
   background-color: #77b7ff;
   width: 100%;
@@ -57,13 +102,17 @@ page{
   animation: slideout 0.5s ease;
 }
 
+@keyframes slideout {
+  0% {
+    left: 0rpx;
+  }
 
-@keyframes slideout{
-  0%{left:0rpx;}
-  100%{left: -750rpx;}
+  100% {
+    left: -750rpx;
+  }
 }
 
-.avatar{
+.avatar {
   width: 140rpx;
   height: 140rpx;
   border-radius: 50%;
@@ -72,29 +121,30 @@ page{
   top: 98rpx;
 }
 
-.close{
+.close {
   width: 38rpx;
   height: 38rpx;
-  margin-left: 30rpx;
+  margin-left: 20rpx;
   font-size: 30px;
   color: white;
 }
 
-.arror{
+.arror {
   position: absolute;
   right: 100rpx;
   color: gainsboro;
   font-size: 36px;
-  font-family: '宋体'
+  font-family: '宋体';
 }
 
-.divider{
+.divider {
   width: 552rpx;
   height: 2rpx;
   margin-left: 100rpx;
-  margin-top:10rpx;
+  margin-top: 10rpx;
 }
-.overview{
+
+.overview {
   color: white;
   font-family: 'Microsoft YaHei';
   font-size: 38rpx;
@@ -102,7 +152,7 @@ page{
   margin-top: 268rpx;
 }
 
-.icon{
+.icon {
   width: 44rpx;
   height: 44rpx;
   margin-top: 4rpx;
@@ -116,8 +166,7 @@ page{
 *
 */
 
-
-.new{
+.new {
   width: 126rpx;
   height: 126rpx;
   text-align: center;
@@ -127,24 +176,70 @@ page{
   z-index: -1;
 }
 
-.section{
+.countdown {
+  font-size: 40px;
   color: white;
   position: absolute;
-  top: 514rpx;
-  left: 324rpx;
+  top: 370rpx;
+  left: 220rpx;
+}
+
+.section {
+  font-size: 60px;
+  color: white;
+  position: absolute;
+  top: 167rpx;
+  left: 112rpx;
   z-index: -1;
   animation: fadein 0.5s ease;
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+  padding-top: 170rpx;
+  padding-left: 110rpx;
+  padding-bottom: 170rpx;
+  padding-right: 110rpx;
+  font-family: '华文细黑';
 }
 
-@keyframes fadein{
-  0%  {opacity: 0;font-size: 0}
-  15% {opacity: 0.15;font-size: 36}
-  25% {opacity: 0.45;font-size: 24}
-  50% {opacity: 0.65;font-size: 30}
-  100%{opacity: 1;font-size: 20}
+.section1 {
+  font-size: 60px;
+  color: white;
+  position: absolute;
+  top: 358rpx;
+  left: 218rpx;
+  z-index: -1;
+  animation: fadein 0.5s ease;
+  font-family: '华文细黑';
 }
 
-.start{
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    font-size: 0;
+  }
+
+  15% {
+    opacity: 0.15;
+    font-size: 36;
+  }
+
+  25% {
+    opacity: 0.45;
+    font-size: 24;
+  }
+
+  50% {
+    opacity: 0.65;
+    font-size: 30;
+  }
+
+  100% {
+    opacity: 1;
+    font-size: 20;
+  }
+}
+
+.start {
   position: absolute;
   bottom: 48rpx;
   width: 650rpx;
@@ -154,8 +249,28 @@ page{
   z-index: -1;
 }
 
-.fuckNoFontClolr{
-  color: white;
-  font-family:STXihei; 
+.start1 {
+  position: absolute;
+  bottom: 198rpx;
+  width: 650rpx;
+  height: 110rpx;
+  background-color: #77b7ff;
+  margin-left: 50rpx;
+  z-index: -1;
 }
 
+.start2 {
+  position: absolute;
+  bottom: 398rpx;
+  left: 155rpx;
+  width: 350rpx;
+  height: 110rpx;
+  background-color: #77b7ff;
+  margin-left: 50rpx;
+  z-index: -1;
+}
+
+.fuckNoFontClolr {
+  color: white;
+  font-family: STXihei;
+}

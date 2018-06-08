@@ -1,13 +1,13 @@
 {
   "pages": [
-
     "pages/main/main",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/overview/overview",
     "pages/timeline/timeline",
     "pages/setting/setting",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/multi/multi",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
