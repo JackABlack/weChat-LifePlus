@@ -3,6 +3,8 @@
   <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
   <view class='overview'>
+  <view class='bkground'>
+  </view>
     <view>
       <view bindtap='toMain'>
         <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
