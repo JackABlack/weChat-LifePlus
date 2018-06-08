@@ -46,8 +46,12 @@ Page({
    * 时间选择器
    */
 
-  add: function () {
-    
+  goBack2: function () {
+    this.setData({
+      join:false,
+      timerStart:false,
+      addTimer:true
+    })
   },
 gonnaStart:function()
 {

@@ -7,7 +7,7 @@ page {
   display: block;
   color: white;
   position: absolute;
-  top: 514rpx;
+  top: 714rpx;
   left: 160rpx;
   z-index: -1;
   animation: fadein 0.5s ease;
@@ -19,7 +19,7 @@ page {
   display: block;
   color: white;
   position: absolute;
-  top: 630rpx;
+  top: 600rpx;
   left: 160rpx;
   z-index: -1;
   animation: fadein 0.5s ease;
@@ -47,7 +47,7 @@ page {
   font-size: 60px;
   color: white;
   position: absolute;
-  top: 358rpx;
+  top: 258rpx;
   left: 218rpx;
   z-index: -1;
   animation: fadein 0.5s ease;
@@ -77,6 +77,7 @@ page {
   font-family: '华文细黑';
   border: 1px solid white;
   border-radius: 5px;
+  padding-top: 0;
   padding-left: 6px;
   padding-bottom: 2px;
   padding-right: 6px;
@@ -161,10 +162,13 @@ page {
   position: absolute;
   right: 100rpx;
   color: gainsboro;
-  font-size: 36px;
+  font-size: 32px;
   font-family: '宋体';
+  padding-top: 0;
 }
-
+text{
+  padding-top: 10rpx;
+}
 .divider {
   width: 552rpx;
   height: 2rpx;
@@ -246,12 +250,14 @@ page {
   bottom: 48rpx;
   width: 650rpx;
   height: 110rpx;
+  padding-top: 10rpx;
   background-color: #77b7ff;
   margin-left: 50rpx;
   z-index: -1;
 }
 
 .start1 {
+    padding-top: 10rpx;
   position: absolute;
   bottom: 198rpx;
   width: 650rpx;

@@ -3,8 +3,8 @@
   <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
   <view class='overview'>
-  <view class='bkground'>
-  </view>
+    <view class='bkground'>
+    </view>
     <view>
       <view bindtap='toMain'>
         <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
@@ -36,7 +36,7 @@
 </view>
 <text class='close' bindtap='goBack' wx-if='{{wannaStart && !timerStart}}'>×</text>
 <image class='more' bindtap='open' wx-if='{{!wannaStart}}' src='/pages/main/element/icon@3x.png'></image>
-<text class='switch' wx:if="{{!timerStart}}" bindtap='switcher'><text style="{{!multi?'':'color:#3f4555'}}">单人</text> | <text style="{{!multi?'color:#3f4555':''}}">多人</text></text>
+<text class='switch' wx:if="{{!timerStart}}" bindtap='switcher'><text style="{{!multi?'':'color:#3f4555'}}">单人</text> |<text style="{{!multi?'color:#3f4555':''}}">多人</text></text>
 <!--
 <view wx-if='{{fail}}' bindtap='closeFail'>
   <image class='fail' src='https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/fail.png' ></image>
@@ -51,11 +51,12 @@
   </picker>
 </view>
 <view wx-if='{{!join && wannaStart}}'>
-<input class='title' type='text' bindinput='title' placeholder='请输入您的专注内容'></input>
-<input class='money' type='text' bindinput='money' placeholder='请选择您的专注金额'></input>
+  <input class='title' type='text' bindinput='title' placeholder='请输入您的专注内容'></input>
+  <input class='money' type='text' bindinput='money' placeholder='请选择您的专注金额'></input>
 </view>
 
 <view wx-if='{{join}}'>
+  <text class='close' bindtap='goBack2'>×</text>
   <input class='money' type='text' bindinput='money' placeholder='房间号'> </input>
   <button class='start2' wx-if='{{join}}' bindtap='join'>
     <text class='fuckNoFontClolr'>加入</text>
