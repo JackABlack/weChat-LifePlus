@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#77b7ff",
-  "navigationBarTitleText": "时间轴",
-  "navigationBarTextStyle": "white"
+  "navigationBarTitleText": "排行榜",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor":"#77b7ff"
 }

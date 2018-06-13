@@ -7,49 +7,51 @@
     </view>
     <view>
       <view bindtap='toMain'>
-        <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
-        <text bindtap='toMain'>主 页<text class='arror'>></text></text>
+        <text bindtap='toMain' style='padding-left: 120rpx;margin-top:20rpx;'>主 页</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toOverview'>
-        <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
-        <text bindtap='toOverview'>记录总览<text class='arror'>></text></text>
+        <text bindtap='toOverview' style='padding-left: 120rpx;margin-top:20rpx;'>记录总览</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toProfile'>
-        <image bindtap='toProfile' class='icon' src='/pages/main/element/icon - Profile@3x.png'></image>
-        <text bindtap='toProfile'>排行榜<text class='arror'>></text></text>
+        <text bindtap='toProfile' style='padding-left: 120rpx;margin-top:20rpx;'>排行榜</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toTimeline'>
-        <image bindtap='toTimeline' class='icon' src='/pages/main/element/icon - Timeline@3x.png'></image>
-        <text bindtap='toTimeline'>时间轴<text class='arror'>></text></text>
+        <text bindtap='toTimeline' style='padding-left: 120rpx;margin-top:40rpx;'>时间轴</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toSetting'>
-        <image bindtap='toSetting' class='icon' src='/pages/main/element/icon - Settings@3x.png'></image>
-        <text bindtap='toSetting'>设 置<text class='arror'>></text></text>
+        <text bindtap='toSetting' style='padding-left: 120rpx;margin-top:20rpx;'>设 置</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
-
     </view>
   </view>
 </view>
 <text class='close' bindtap='goBack' wx-if='{{wannaStart && !timerStart}}'>×</text>
 <image class='more' bindtap='open' wx-if='{{!wannaStart}}' src='/pages/main/element/icon@3x.png'></image>
-<text class='switch' wx:if="{{!timerStart}}" bindtap='switcher'><text style="{{!multi?'':'color:#3f4555'}}">单人</text> |<text style="{{!multi?'color:#3f4555':''}}">多人</text></text>
+<text class='switch' wx:if="{{!timerStart}}" bindtap='switcher'><text style="{{!multi?'':'color:gray'}}">单人</text> |<text style="{{!multi?'color:gray':''}}">多人</text></text>
 <!--
 <view wx-if='{{fail}}' bindtap='closeFail'>
   <image class='fail' src='https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/fail.png' ></image>
 </view>
 -->
 <!--计时选择器核心组件-->
+<text class="{{!multi?'guide11':'guide1'}}">在此时间</text>
 <view wx-if='{{addTimer && !timerStart}}' class="{{wannaStart?'section1':'section'}}">
   <picker mode="time" value="{{time}}" start="{{timeNow}}" end="23:59" bindchange="bindTimeChange">
     <view>
       {{time}}
     </view>
+    <zan-icon type='zan-icon-arrow'></zan-icon>
   </picker>
 </view>
+
+<text class='countdown' wx-if='{{timerStart && !fail}}'>{{wxTimer}}</text>
+
+
+<text class='guide2'>之前</text>
+<text class='guide3'>保持专注</text>
 <view wx-if='{{!join && wannaStart}}'>
   <input class='title' type='text' bindinput='title' placeholder='请输入您的专注内容'></input>
   <input class='money' type='text' bindinput='money' placeholder='请选择您的专注金额'></input>
@@ -63,7 +65,7 @@
   </button>
 </view>
 <button class='start' wx-if='{{!timerStart && !multi && !wannaStart}}' bindtap='gonnaStart'>
-  <text class='fuckNoFontClolr'>开始专注</text>
+  <text class='fuckNoFontClolr'>开始</text>
 </button>
 <button class='start' wx-if='{{!timerStart && !multi && wannaStart}}' bindtap='start'>
   <text class='fuckNoFontClolr'>设置完毕</text>
@@ -77,7 +79,7 @@
 </button>
 
 <!--计时器核心组件-->
-<text class='countdown' wx-if='{{timerStart && !fail}}'>{{wxTimer}}</text>
+
 <!--
 <view class="wrap">
   <view class="circle-box">

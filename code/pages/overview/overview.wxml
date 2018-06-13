@@ -1,58 +1,63 @@
 <!--菜单页，还没有链接页面-->
 <wxs module="filters" src='../../utils/fliter.wxs'></wxs>
+<text class='close' bindtap='goBack' wx-if='{{wannaStart && !timerStart}}'>×</text>
+<view style='width:100%;background-color:#77B7FF'>
+<image class='more' bindtap='open'src='/pages/main/element/icon@3x.png'></image>
+</view>
+
+
 <view class="{{menuOpen?'menu':'menuout'}}">
-  <image class='close' bindtap='close' src='/pages/main/element/icon - close@3x.png'></image>
+  <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
-  <view class='items'>
-    <view class='overview'>
+  <view class='overview'>
+    <view class='bkground'>
+    </view>
+    <view>
       <view bindtap='toMain'>
-        <image bindtap='toMain' class='icon' src='/pages/main/element/house130.png'></image>
-        <text bindtap='toMain'>主页</text>
+        <text bindtap='toMain' style='padding-left: 120rpx;margin-top:20rpx;'>主 页</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toOverview'>
-        <image bindtap='toOverview' class='icon' src='/pages/main/element/icon - Overview@3x.png'></image>
-        <text bindtap='toOverview'>记录纵览</text>
+        <text bindtap='toOverview' style='padding-left: 120rpx;margin-top:20rpx;'>记录总览</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toProfile'>
-        <image bindtap='toProfile' class='icon' src='/pages/main/element/icon - Profile@3x.png'></image>
-        <text bindtap='toProfile'>排行榜</text>
+        <text bindtap='toProfile' style='padding-left: 120rpx;margin-top:20rpx;'>排行榜</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toTimeline'>
-        <image bindtap='toTimeline' class='icon' src='/pages/main/element/icon - Timeline@3x.png'></image>
-        <text bindtap='toTimeline'>时间轴</text>
+        <text bindtap='toTimeline' style='padding-left: 120rpx;margin-top:40rpx;'>时间轴</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
       <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
       <view bindtap='toSetting'>
-        <image bindtap='toSetting' class='icon' src='/pages/main/element/icon - Settings@3x.png'></image>
-        <text bindtap='toSetting'>设置</text>
+        <text bindtap='toSetting' style='padding-left: 120rpx;margin-top:20rpx;'>设 置</text><image class='arror' src='/pages/main/element/arrow.png'></image>
       </view>
-
     </view>
   </view>
+    <text>\n\n</text>
 </view>
-<view class='menuButton'>
-  <image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
-  <text>\n\n</text>
-</view>
-<scroll-view wx:if='{{!menuOpen}}' scroll-x="true" style=" white-space: nowrap; display: flex" class='month'>
+<view style='background-color:#77B7FF'>
+<view style="{{menuOpen?'opacity: 0;':'opacity: 1;'}}">
+<scroll-view  scroll-x="true" style=" white-space: nowrap; display: flex" class='month'>
   <view style='display:inline;'>
-    <text class='monthButton'>一月  </text>
-    <text class="monthButton">二月  </text>
-    <text class='monthButton'>三月  </text>
-    <text class="monthButton">四月  </text>
-    <text class='monthButton'>五月  </text>
-    <text class="monthButton">六月  </text>
-    <text class='monthButton'>七月  </text>
-    <text class="monthButton">八月  </text>
-    <text class='monthButton'>九月  </text>
-    <text class="monthButton">十月  </text>
-    <text class='monthButton'>十一月  </text>
-    <text class="monthButton">十二月  </text>
+    <text class="{{tapped1?'tapped':'monthButton'}}" bindtap='month1'>一月  </text>
+    <text class="{{tapped2?'tapped':'monthButton'}}" bindtap='month2'>二月  </text>
+    <text class="{{tapped3?'tapped':'monthButton'}}" bindtap='month3'>三月  </text>
+    <text class="{{tapped4?'tapped':'monthButton'}}" bindtap='month4'>四月  </text>
+    <text class="{{tapped5?'tapped':'monthButton'}}" bindtap='month5'>五月  </text>
+    <text class="{{tapped6?'tapped':'monthButton'}}" bindtap='month6'>六月  </text>
+    <text class="{{tapped7?'tapped':'monthButton'}}" bindtap='month7'>七月  </text>
+    <text class="{{tapped8?'tapped':'monthButton'}}" bindtap='month8'>八月  </text>
+    <text class="{{tapped9?'tapped':'monthButton'}}" bindtap='month9'>九月  </text>
+    <text class="{{tapped10?'tapped':'monthButton'}}" bindtap='month10'>十月  </text>
+    <text class="{{tapped11?'tapped':'monthButton'}}" bindtap='month11'>十一月  </text>
+    <text class="{{tapped12?'tapped':'monthButton'}}" bindtap='month12'>十二月  </text>
   </view>
 </scroll-view>
+</view>
+</view>
+
+
 <view class='context'>
   <text class='total' style='display:block;'>{{total}}</text>
   <text class='zh-total' style='display:block;'>总计</text>

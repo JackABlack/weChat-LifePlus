@@ -1,49 +1,132 @@
+
+/***********************
+*                      *
+*下面写的是 时间 的CSS  *
+*                      *
+************************/
+.date{
+  background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/timeline.jpg');
+  width: 750rpx;
+  height: 400 rpx;
+  text-align: center;
+  color: white;
+  font-family: '黑体';
+}
+.day{
+  font-size: 74rpx;
+  margin-top: 34rpx;
+  display: block;
+}
+.week{
+  font-size: 48rpx;
+  margin-top: 15rpx;
+  display: block;
+  
+}
+.month{
+  font-size: 21rpx;
+  margin-top: 20rpx;
+  margin-bottom: 80rpx;
+  display: block;
+  color: gray;
+}
+
+.logs{
+  font-family: '华文细黑';
+  position: absolute;
+  left: 60rpx;
+  z-index: -1;
+}
+.member{
+  display: inline;
+  font-size: 24rpx;
+  color: gray;
+  margin-left: 20rpx;
+}
+.membox{
+  margin-left: 210rpx;
+}
+.money{
+  color: gray;
+  font-size: 22rpx;
+  display: block;
+  margin-top: 22rpx;
+  margin-left: 230rpx;
+}
+.title{
+  font-size: 30rpx;
+  font-weight: bold;
+  position: absolute;
+  left:230rpx;
+  margin-top: 10rpx;
+}
+.time{
+  margin-left: 60rpx;
+  font-size: 42rpx;
+  color: black;
+}
+.blue{
+  color:lightblue;
+  size: 31rpx;
+  font-weight: bold;
+}
+
+
 /*
 *
 *下面写的是 菜单 的CSS
 *
 */
-
-
-.more{
-  width: 34rpx;
+.more {
+  background-color: #77B7FF;
   height: 34rpx;
-  margin-left: 30rpx;  
+  width: 34rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
   z-index: -1;
 }
 
-.menu{
+.menu {
   position: fixed;
-  background-color: #77b7ff;
   width: 100%;
   height: 100%;
-  z-index: 0;
   animation: slidein 0.5s ease alternate;
+  background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/TIM%E5%9B%BE%E7%89%8720180609170932.png');
+  z-index: 0;
 }
 
+@keyframes slidein {
+  0% {
+    left: -750rpx;
+  }
 
-@keyframes slidein{
-  0%{left:-750rpx;}
-  100%{left: 0rpx;}
+  100% {
+    left: 0rpx;
+  }
 }
 
-.menuout{
+.menuout {
   position: fixed;
-  background-color: #77b7ff;
+  background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/TIM%E5%9B%BE%E7%89%8720180609170932.png');
   width: 100%;
   height: 100%;
   z-index: 0;
   left: -750rpx;
   animation: slideout 0.5s ease;
+  
 }
 
+@keyframes slideout {
+  0% {
+    left: 0rpx;
+  }
 
-@keyframes slideout{
-  0%{left:0rpx;}
-  100%{left: -750rpx;}
+  100% {
+    left: -750rpx;
+  }
 }
 
-.avatar{
+.avatar {
   width: 140rpx;
   height: 140rpx;
   border-radius: 50%;
@@ -52,30 +135,59 @@
   top: 98rpx;
 }
 
-.close{
+.close {
   width: 38rpx;
   height: 38rpx;
-  margin-top: 6rpx;
-  margin-left: 30rpx;
+  margin-left: 20rpx;
+  font-size: 30px;
+  color: white;
 }
 
-.divider{
+.arror {
+  position: absolute;
+  right: 100rpx;
+  color: gainsboro;
+  display: inline;
+  padding-top: 10rpx;
+    width: 38rpx;
+  height: 38rpx;
+}
+
+text {
+  padding-top: 10rpx;
+}
+
+.divider {
   width: 552rpx;
   height: 2rpx;
   margin-left: 100rpx;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
 }
-.overview{
+.divider1 {
+  width: 552rpx;
+  height: 2rpx;
+  margin-left: 100rpx;
+
+}
+.overview {
   color: white;
   font-family: '华文细黑';
-  font-size: 26rpx;
+  font-size: 32rpx;
   vertical-align: middle;
-  margin-top: 268rpx;
+  margin-top: 308rpx;
+
 }
 
-.icon{
+.icon {
   width: 44rpx;
   height: 44rpx;
   margin-top: 4rpx;
-  margin-left: 184rpx;
-  margin-right: 74rpx;
+  margin-left: 120rpx;
+  z-index: 0;
+}
+
+.menuButton{
+  width: 100%;
+  background-color: #77B7FF
 }

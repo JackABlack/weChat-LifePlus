@@ -2,7 +2,7 @@
 const alter = require('../../utils/alter.js');
 const timer = require('../../utils/wxTimer.js');
 
- 
+
 Page({
 
   /**
@@ -12,9 +12,9 @@ Page({
     menuOpen: false,
     addTimer: true,
     timerStart: false,
-    multi:false,
-    join:false,
-    wannaStart:false,
+    multi: false,
+    join: false,
+    wannaStart: false,
     //頭像獲取
     userInfo: {},
     hasUserInfo: false,
@@ -25,9 +25,9 @@ Page({
     timeNow: '12:01',//当前时间
     during: '',//持续时间
     timeLeft: '00:00:00',//剩余时间
-    fail:false,//是否失败
-    money:0,
-    title:''
+    fail: false,//是否失败
+    money: 0,
+    title: ''
   },
   /**
    * 菜单栏
@@ -48,29 +48,28 @@ Page({
 
   goBack2: function () {
     this.setData({
-      join:false,
-      timerStart:false,
-      addTimer:true
+      join: false,
+      timerStart: false,
+      addTimer: true
     })
   },
-gonnaStart:function()
-{
-  this.setData({
-    wannaStart:true,
-  })
-},
+  gonnaStart: function () {
+    this.setData({
+      wannaStart: true,
+    })
+  },
   bindTimeChange: function (e) {
     this.setData({
       time: e.detail.value,
       endTime: Date.parse((this.data.today + e.detail.value)),//结束时间的时间戳
     })
   },
-  title:function(e){
+  title: function (e) {
     this.setData({
-      title:e.detail.value
+      title: e.detail.value
     })
   },
-    money: function (e) {
+  money: function (e) {
     this.setData({
       money: e.detail.value
     })
@@ -80,8 +79,12 @@ gonnaStart:function()
    */
 
   start: function () {
-    var timeNow = Date.parse(this.data.today + this.data.timeNow )//当前时间的时间戳
+    var timeNow = Date.parse(this.data.today + this.data.timeNow)//当前时间的时间戳
     var today = this.data.today
+    getApp().add = true
+    getApp().name = this.data.title
+    getApp().time = this.data.timeNow
+    getApp().amount = this.data.money
     wx.requestPayment(
       {
         'timeStamp': '',
@@ -90,10 +93,10 @@ gonnaStart:function()
         'signType': 'MD5',
         'paySign': '',
         'success': function (res) { },
-        'fail': function (res) { 
+        'fail': function (res) {
           wx.showToast({
             title: '根据相关规则,暂时无法支付',
-            icon:'none',
+            icon: 'none',
 
           })
         },
@@ -118,29 +121,29 @@ gonnaStart:function()
         that.setData({
           addTimer: true,
           timerStart: false,
-          wannaStart:false,
+          wannaStart: false,
         })
+        getApp().status = true
         wxTimer.stop();
       },
     })
     wxTimer.start(this);
   },
-  switcher:function(){
+  switcher: function () {
     this.setData({
-      multi:!this.data.multi
+      multi: !this.data.multi,
+      wannaStart: !this.data.wannaStart
     })
   },
-  joinIn:function(){
+  joinIn: function () {
     this.setData({
-      addTimer:false,
-      timerStart:true,
-      join:true
+      timerStart: true,
+      join: true
     })
   },
-  closeFail:function(){
+  closeFail: function () {
     this.setData({
-      fail:false,
-      addTimer: false,
+      fail: false,
       timerStart: false,
     })
   },
@@ -170,7 +173,7 @@ gonnaStart:function()
 
   toTimeline: function () {
     wx.redirectTo({
-      url: '../timeline/timeline',
+      url: '../timeline/timeline?time=' + this.data.timeNow + 'name=' + this.data.title + 'amount=' + this.data.money + 'status=' + this.data.fail,
       success: function (res) { },
       fail: function (res) {
         wx.showToast({
@@ -215,7 +218,7 @@ gonnaStart:function()
     })
   },
 
-  create:function(){
+  create: function () {
     wx.navigateTo({
       url: '../multi/multi',
     })
@@ -230,17 +233,17 @@ gonnaStart:function()
     })
   },
 
-goBack:function(){
-  this.setData({
-    wannaStart:false,
-  })
-},
+  goBack: function () {
+    this.setData({
+      wannaStart: false,
+    })
+  },
   onLoad: function (options) {
     this.setData({
       timeNow: alter.formatTime(new Date),
       time: alter.formatTime(new Date),
       today: alter.formatRealDate(new Date),
-      during:'0:10:0'
+      during: '0:10:0'
     })
     //加載頭像
     if (getApp().globalData.userInfo) {
@@ -278,8 +281,12 @@ goBack:function(){
    */
   onHide: function () {
     this.setData({
-      fail:true,
+      fail: true,
+      timerStart: false,
+      wannaStart: false,
     })
+    wxTimer.stop()
+    getApp().status = false
   },
 
   /**

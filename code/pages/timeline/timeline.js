@@ -130,11 +130,64 @@ Page({
    */
   onLoad: function (options) {
     var today = new Date
+    var n = this.data.logsList.length + 1
+    getApp().time
+    var time = getApp().time
+    var name = getApp().name
+    var amount = getApp().amount
+    var status = getApp().status
+    var member = getApp().member
+    var newItem = [{time,name,amount,status,member}]
+    var kill = getApp().kill
+    var add = getApp().add
+    console.log(kill);
+    if (kill) {
+      this.setData({
+        logsList: []
+      })
+      getApp().kill = false
+    }
+    if (add) {
+      this.setData({
+        logsList: this.data.logsList.concat(newItem)
+      })
+      getApp().add = false
+    }
     this.setData({
       day: alter.formatDate(today),
       week: alter.formatWeek(today),
       month: alter.formatMonth(today),
+      
     })
+    
+        if (getApp().globalData.userInfo) {
+          this.setData({
+            userInfo: getApp().globalData.userInfo,
+            hasUserInfo: true
+          })
+        } else if (this.data.canIUse) {
+          // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+          // 所以此处加入 callback 以防止这种情况
+          getApp().userInfoReadyCallback = res => {
+            this.setData({
+              userInfo: res.userInfo,
+              hasUserInfo: true
+            })
+          }
+        } else {
+          // 在没有 open-type=getUserInfo 版本的兼容处理
+          wx.getUserInfo({
+            success: res => {
+              getApp().globalData.userInfo = res.userInfo
+              this.setData({
+                userInfo: res.userInfo,
+                hasUserInfo: true
+              })
+            }
+          })
+        }
+      
+
   },
 
   /**
