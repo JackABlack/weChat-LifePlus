@@ -1,9 +1,0 @@
-<input type='text' bindinput ='test' style='border:1px;'></input>
-<text bindtap='ts'>这是input值：{{tads}}</text>
-<picker mode="time" value="{{time}}" end="23:59" bindchange="bindTimeChange">
-    <view class="picker">
-      {{time}}
-    </view>
-  </picker>
-<text>这是测试值{{tads-time}}\n</text>
-<text>这也是测试值 {{me}}</text>

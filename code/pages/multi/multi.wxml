@@ -1,2 +1,31 @@
-<!--pages/multi/multi.wxml-->
-<text>pages/multi/multi.wxml</text>
+<view class='date'>
+  <text>\n</text>
+  <!--这个换行神奇地解决了css的某个问题！-->
+  <text class='day'>{{time}}</text>
+  <text class='week'>{{amount}} 元</text>
+  <text class='month'>"{{status?"支付已完成":"等待支付中"}}"\n\n\n</text>
+</view>
+<view class='logs'>
+  <view class='block'>
+    <view>
+      <text class="blue">○</text>
+      <text class='titleOfMulti'>本次目标 · {{title}}</text>
+      <text class='contentOfMulti'>在 {{time}} 之前，您需要保持专注状态。无法操作手机。成功完成专注的成员将平分奖池</text>
+    </view>
+
+  </view>
+  <scroll-view scroll-y='true'>
+    <view wx:for="{{logsList}}">
+      <view class='scroll'>
+        <text class="{{item.status?'green':'red'}}">○</text>
+        <image class='avater' src="{{item.name}}"></image> 
+        <text class='money' wx:if='{{item.status}}'>已确认支付</text>
+        <text class='money' wx:if='{{!item.status}}'>未确认支付</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<button class='start' bindtap='gonnaStart'>
+  <text class='fuckNoFontClolr'>开始</text>
+</button>

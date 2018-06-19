@@ -16,6 +16,18 @@ page {
   border-bottom: 1px solid white;
   text-align: center;
 }
+.number{
+    display: block;
+  color: white;
+  position: absolute;
+  top: 514rpx;
+  left: 170rpx;
+  width:400rpx;
+  z-index: -1;
+  animation: fadein 0.5s ease;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
 .guide1 {
   display: block;
   color: white;

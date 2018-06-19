@@ -1,4 +1,4 @@
-<!--菜单页，还没有链接页面-->
+
 <view class="{{menuOpen?'menu':'menuout'}}">
   <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
@@ -37,7 +37,7 @@
 </view>
 -->
 <!--计时选择器核心组件-->
-<text class="{{!multi?'guide11':'guide1'}}">在此时间</text>
+<text class="{{!multi?'guide11':'guide1'}}" wx-if='{{!join}}' >在此时间</text>
 <view wx-if='{{addTimer && !timerStart}}' class="{{wannaStart?'section1':'section'}}">
   <picker mode="time" value="{{time}}" start="{{timeNow}}" end="23:59" bindchange="bindTimeChange">
     <view>
@@ -50,8 +50,8 @@
 <text class='countdown' wx-if='{{timerStart && !fail}}'>{{wxTimer}}</text>
 
 
-<text class='guide2'>之前</text>
-<text class='guide3'>保持专注</text>
+<text wx-if='{{!join}}' class='guide2'>之前</text>
+<text wx-if='{{!join}}' class='guide3'>保持专注</text>
 <view wx-if='{{!join && wannaStart}}'>
   <input class='title' type='text' bindinput='title' placeholder='请输入您的专注内容'></input>
   <input class='money' type='text' bindinput='money' placeholder='请选择您的专注金额'></input>
@@ -59,7 +59,7 @@
 
 <view wx-if='{{join}}'>
   <text class='close' bindtap='goBack2'>×</text>
-  <input class='money' type='text' bindinput='money' placeholder='房间号'> </input>
+  <input class='number' type='text' bindinput='money' placeholder='房间号'> </input>
   <button class='start2' wx-if='{{join}}' bindtap='join'>
     <text class='fuckNoFontClolr'>加入</text>
   </button>

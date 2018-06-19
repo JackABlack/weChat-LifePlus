@@ -1,1 +1,117 @@
-/* pages/multi/multi.wxss */
+.date{
+  background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/timeline.jpg');
+  width: 750rpx;
+  height: 400 rpx;
+  text-align: center;
+  color: white;
+  font-family: '华文细黑';
+}
+.day{
+  font-size: 134rpx;
+
+  display: block;
+}
+.week{
+  font-size: 48rpx;
+  margin-top: 15rpx;
+  display: block;
+  
+}
+.month{
+  font-size: 21rpx;
+  margin-top: 20rpx;
+  margin-bottom: 80rpx;
+  display: block;
+  color: gray;
+}
+
+.logs{
+  font-family: '华文细黑';
+  position: absolute;
+  left: 60rpx;
+  z-index: -1;
+}
+.member{
+  display: inline;
+  font-size: 24rpx;
+  color: gray;
+  margin-left: 20rpx;
+}
+.membox{
+  margin-left: 210rpx;
+}
+.money{
+  color: gray;
+  font-size: 22rpx;
+  position: relative;
+  left: 60rpx;
+}
+.avater{
+  width: 66rpx;
+  height: 66rpx;
+  margin-left: 50rpx;
+  padding-top: 10rpx;
+  position: relative;
+  top: 25rpx;
+}
+.title{
+  font-size: 30rpx;
+  font-weight: bold;
+  position: absolute;
+  left:100rpx;
+
+}
+.titleOfMulti{
+  font-size: 16px;
+  font-family: '黑体';
+  margin-left: 60rpx;
+  
+}
+.fuckNoFontClolr {
+  color: white;
+  font-family: STXihei;
+}
+
+.contentOfMulti{
+    font-size: 13px;
+    margin-top: 40rpx;
+    margin-left: 95rpx;
+    width: 470rpx;
+
+    line-height: 25px;
+  font-family: '黑体';
+  display: block;
+}
+.start {
+  position: absolute;
+  bottom: 48rpx;
+  width: 650rpx;
+  height: 110rpx;
+  padding-top: 10rpx;
+  background-color: #77b7ff;
+  margin-left: 50rpx;
+  
+}
+.time{
+  margin-left: 60rpx;
+  font-size: 24rpx;
+  color: black;
+}
+.block{
+  display: block;
+}
+.green{
+  color:#8fe2d8;
+  size: 31rpx;
+  font-weight: bold;
+}
+.blue{
+    color:#9b80de;
+  size: 31rpx;
+  font-weight: bold;
+}
+.red{
+  color:#ff6b90;
+  size: 31rpx;
+  font-weight: bold;
+}

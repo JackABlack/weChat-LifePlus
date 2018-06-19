@@ -6,49 +6,55 @@ Page({
     day: '',
     week: '',
     month: '',
+    scrollHeight: 0,
+    scrollTop: 0,
+    display: [],
     logsList: [{
       time: '10:56',
-      name: 'testname1',
-      amount:2,
-      status:false,
-      member:['\n'],
+      name: '今日示例1',
+      amount: 2,
+      status: false,
+      member: ['\n'],
     }, {
-      time: '11:23',
-      name: 'testname2',
+      time: '11:59',
+      name: '今日示例2',
       amount: 1,
       status: false,
-      member: ['member1', 'member2','member3'],
-      }, {
-        time: '13:33',
-        name: 'testname2',
-        amount: 1,
-        status: true,
-        member: ['member4', 'member1'],
+      member: ['member1', 'member2', 'member3'],
+    }, {
+      time: '14:20',
+      name: '今日示例3',
+      amount: 1,
+      status: true,
+      member: ['member4', 'member1'],
     }, {
       time: '16:20',
-      name: 'testname2',
+      name: '今日示例4',
       amount: 1,
       status: false,
       member: ['member6', 'member7', 'member8'],
-      },{
-        time: '1:56',
-        name: '我的吗',
-        amount: '4',
-        status: true,
-        member: ['\n'],
-      }, {
-        time: '5:23',
-        name: '哈哈哈哈',
-        amount: 1,
-        status: false,
-        member: ['member1', 'member2', 'member3'],
-      }, {
-        time: '8:33',
-        name: '太牛逼了',
-        amount: 1,
-        status: true,
-        member: ['member4', 'member1'],
-      }]
+    }],
+
+    logsList2: [{
+     
+      time: '1:56',
+      name: '昨日示例1',
+      amount: '4',
+      status: true,
+      member: ['\n'],
+    }, {
+      time: '5:23',
+      name: '昨日示例2',
+      amount: 1,
+      status: false,
+      member: ['member1', 'member2', 'member3'],
+    }, {
+      time: '8:33',
+      name: '昨日示例3',
+      amount: 1,
+      status: true,
+      member: ['member4', 'member1'],
+    }]
   },
 
   //菜单组件
@@ -129,67 +135,87 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          scrollHeight: res.windowHeight
+        });
+      }
+    });
     var today = new Date
     var n = this.data.logsList.length + 1
-    getApp().time
-    var time = getApp().time
-    var name = getApp().name
-    var amount = getApp().amount
-    var status = getApp().status
-    var member = getApp().member
-    var newItem = [{time,name,amount,status,member}]
-    var kill = getApp().kill
-    var add = getApp().add
+    var time = getApp().globalData.time
+    var name = getApp().globalData.name
+    var amount = getApp().globalData.amount
+    var status = getApp().globalData.status
+    var member = getApp().globalData.member
+    var newItem = [{ time, name, amount, status, member }]
+    var kill = getApp().globalData.kill
+    var add = getApp().globalData.add
     console.log(kill);
     if (kill) {
       this.setData({
-        logsList: []
+        display: [],
+        logsList:[],
+        logsList2: [],
       })
-      getApp().kill = false
+      getApp().globalData.kill = false
     }
     if (add) {
       this.setData({
         logsList: this.data.logsList.concat(newItem)
       })
-      getApp().add = false
+      getApp().globalData.add = false
     }
     this.setData({
       day: alter.formatDate(today),
       week: alter.formatWeek(today),
       month: alter.formatMonth(today),
-      
+      display: this.data.logsList,
     })
     
-        if (getApp().globalData.userInfo) {
+    if (getApp().globalData.userInfo) {
+      this.setData({
+        userInfo: getApp().globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      getApp().userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          getApp().globalData.userInfo = res.userInfo
           this.setData({
-            userInfo: getApp().globalData.userInfo,
+            userInfo: res.userInfo,
             hasUserInfo: true
           })
-        } else if (this.data.canIUse) {
-          // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-          // 所以此处加入 callback 以防止这种情况
-          getApp().userInfoReadyCallback = res => {
-            this.setData({
-              userInfo: res.userInfo,
-              hasUserInfo: true
-            })
-          }
-        } else {
-          // 在没有 open-type=getUserInfo 版本的兼容处理
-          wx.getUserInfo({
-            success: res => {
-              getApp().globalData.userInfo = res.userInfo
-              this.setData({
-                userInfo: res.userInfo,
-                hasUserInfo: true
-              })
-            }
-          })
         }
-      
+      })
+    }
+  },
+  scroll: function (event) {
+    //该方法绑定了页面滚动时的事件，我这里记录了当前的position.y的值,为了请求数据之后把页面定位到这里来。
+    this.setData({
+      scrollTop: event.detail.scrollTop
+    });
 
   },
-
+  next: function () {
+    var data = this.data.logsList2
+    this.setData({
+      display: this.data.display.concat(data)
+    })
+    page++;
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

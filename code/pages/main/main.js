@@ -81,10 +81,11 @@ Page({
   start: function () {
     var timeNow = Date.parse(this.data.today + this.data.timeNow)//当前时间的时间戳
     var today = this.data.today
-    getApp().add = true
-    getApp().name = this.data.title
-    getApp().time = this.data.timeNow
-    getApp().amount = this.data.money
+    getApp().globalData.add = true
+    getApp().globalData.start = false
+    getApp().globalData.name = this.data.title
+    getApp().globalData.time = this.data.timeNow
+    getApp().globalData.amount = this.data.money
     wx.requestPayment(
       {
         'timeStamp': '',
@@ -123,7 +124,7 @@ Page({
           timerStart: false,
           wannaStart: false,
         })
-        getApp().status = true
+        getApp().globalData.status = true
         wxTimer.stop();
       },
     })
@@ -219,9 +220,18 @@ Page({
   },
 
   create: function () {
+    getApp().globalData.name = this.data.title
+    getApp().globalData.time = this.data.time
+    getApp().globalData.amount = this.data.money
+    wx.navigateTo({
+      url: '../multi/multi'
+    })
+  },
+  join:function(){
     wx.navigateTo({
       url: '../multi/multi',
     })
+    this.setData
   },
 
   getUserInfo: function (e) {
@@ -275,7 +285,14 @@ Page({
   },
 
 
-
+  onShow: function () {
+    if (getApp().globalData.start) {
+      this.start()
+      this.setData({
+        fail:false,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -285,8 +302,10 @@ Page({
       timerStart: false,
       wannaStart: false,
     })
+ 
     wxTimer.stop()
-    getApp().status = false
+    getApp().globalData.status = false
+
   },
 
   /**

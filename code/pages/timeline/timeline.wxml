@@ -1,4 +1,4 @@
-<!--菜单页，还没有链接页面-->
+
 <view class="{{menuOpen?'menu':'menuout'}}">
   <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
@@ -28,6 +28,7 @@
     </view>
   </view>
 </view>
+<view >
 <view class='menuButton'>
   <image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
 </view>
@@ -38,9 +39,11 @@
   <text class='week'>{{week}}</text>
   <text class='month'>{{month}}\n\n\n\n</text>
 </view>
+</view>
+
 <view id='logs' class='logs'>
-  <scroll-view scroll-y='true'>
-    <view wx:for="{{logsList}}" wx:key='time'>
+  <scroll-view scroll-y='true'bindscrolltolower='next' bindscroll='scroll' style="height:{{scrollHeight*2 - 620}}rpx;">
+    <view wx:for="{{display}}" wx:key='time'>
       <view class='scroll'>
         <view>
           <text class="{{item.status?'green':'red'}}">○</text>

@@ -18,36 +18,43 @@ Page({
       menuOpen: false
     })
   },
-  getTheFuckAway1:function(){
+  noChangeOfRequest1:function(){
     this.setData({
       check1: false,
-      check2:true,
+      check3:true,
+    })
+    wx.showModal({
+      title: '警告',
+      content:'您正在执行危险操作，本操作不可撤销，请再次轻点设置条目以确认！',
+      showCancel:false,
+      confirmText:'我已知晓',
+      confirmColor:'#ff0000',
     })
   },
-  getTheFuckAway2: function () {
-    this.setData({
-      check2: false,
-      check3: true,
-    })
-  },
-  getTheFuckAway3: function () {
+  noChangeOfRequest2: function () {
     this.setData({
       check3: false,
       check1: true,
     })
-    getApp().kill = true,
+    getApp().globalData.kill = true,
     wx.showToast({
       title: '记忆清除执行完毕',
       icon:'success'
     })
   },
-  dontGetTheFuckAway:function(){
-this.setData({
-  check3: false,
-  check1: true, 
-  check2: false,
-})
+  noneOfYourBussiness:function(){
+    wx.showToast({
+      title: 'Function Under Constraction!',
+      icon: 'none',
+
+      duration: 4000,
+      mask: true,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
+  
   //导航组件
   toSetting: function () {
     this.setData({

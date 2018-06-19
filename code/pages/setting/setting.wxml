@@ -2,8 +2,6 @@
   <text class='close' bindtap='close'>×</text>
   <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
   <view class='overview'>
-    <view class='bkground'>
-    </view>
     <view>
       <view bindtap='toMain'>
         <text bindtap='toMain' style='padding-left: 120rpx;margin-top:20rpx;'>主 页</text><image class='arror' src='/pages/main/element/arrow.png'></image>
@@ -27,20 +25,22 @@
     </view>
   </view>
 </view>
-<view class='menuButton'>
+<view class='menuButton' wx-if='{{!menuOpen}}'>
   <image class='more' bindtap='open' src='/pages/main/element/icon@3x.png'></image>
 </view>
-
-<view>
-<button bindtap='getTheFuckAway1' style='color:red;width:100%' wx-if='{{check1&&!menuOpen}}'>\n曹尼玛，给劳资滚！\n</button>
-</view>
-<view>
-<button bindtap='getTheFuckAway2' style='color:red;width:100%' wx-if='{{check2&&!menuOpen}}'>\你确定要滚？\n</button>
-</view>
-<view>
-<button bindtap='getTheFuckAway3' style='color:red;width:100%' wx-if='{{check3&&!menuOpen}}'>\n这Button按下去可就改不了了啊\n</button>
-</view>
-<text>\n\n</text>
-<view>
-<button bindtap='dontGetTheFuckAway' style='color:green;width:100%' wx-if='{{!menuOpen}}'>\n雅蠛蝶，我不滚了！\n</button>
-</view>
+  <view class='overview1' style='z-index:0;position:absolute;' wx-if='{{!menuOpen}}'>
+    <view>
+      <view bindtap='noChangeOfRequest1'>
+        <text bindtap='noChangeOfRequest1' style='padding-left: 120rpx;margin-top:20rpx;' wx-if='{{check1}}'>清除所有记录</text><image class='arror' src='/pages/main/element/arrow.png'></image>
+        <text bindtap='noChangeOfRequest2' style='padding-left: 120rpx;margin-top:20rpx;' wx-if='{{check3}}'>确定清除所有记录</text><image class='arror' src='/pages/main/element/arrow.png'></image>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='noneOfYourBussiness'>
+        <text bindtap='noneOfYourBussiness' style='padding-left: 120rpx;margin-top:20rpx;'>关于LifePlus</text><image class='arror' src='/pages/main/element/arrow.png'></image>
+      </view>
+      <image class='divider' src='/pages/main/element/Divider@3x.png'></image>
+      <view bindtap='noneOfYourBussiness'>
+        <text bindtap='noneOfYourBussiness' style='padding-left: 120rpx;margin-top:40rpx;'>问题反馈</text><image class='arror' src='/pages/main/element/arrow.png'></image>
+      </view>
+    </view>
+  </view>

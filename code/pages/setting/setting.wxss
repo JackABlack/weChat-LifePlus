@@ -1,6 +1,8 @@
-
+page{
+  background-image: url(https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/setting.jpg) ;
+  background-size: 100%, 100%;
+}
 .more {
-  background-color: #77B7FF;
   height: 34rpx;
   width: 34rpx;
   margin-left: 30rpx;
@@ -13,8 +15,8 @@
   width: 100%;
   height: 100%;
   animation: slidein 0.5s ease alternate;
-  background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/TIM%E5%9B%BE%E7%89%8720180609170932.png');
-  z-index: 0;
+background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/TIM%E5%9B%BE%E7%89%8720180609170932.png');
+  z-index: -1;
 }
 
 @keyframes slidein {
@@ -32,7 +34,7 @@
   background-image: url('https://lifeplus-1256582318.cos.ap-chengdu.myqcloud.com/TIM%E5%9B%BE%E7%89%8720180609170932.png');
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: -1;
   left: -750rpx;
   animation: slideout 0.5s ease;
   
@@ -67,7 +69,7 @@
 
 .arror {
   position: absolute;
-  right: 100rpx;
+  right: 20rpx;
   color: gainsboro;
   display: inline;
   padding-top: 10rpx;
@@ -98,7 +100,17 @@ text {
   font-size: 32rpx;
   vertical-align: middle;
   margin-top: 308rpx;
-
+  position: absolute;
+  z-index: -1;
+}
+.overview1 {
+  color: white;
+  position: absolute;
+  font-family: '华文细黑';
+  font-size: 32rpx;
+  vertical-align: middle;
+  margin-top: 308rpx;
+z-index: 0;
 }
 
 .icon {
@@ -107,8 +119,4 @@ text {
   margin-top: 4rpx;
   margin-left: 120rpx;
   z-index: 0;
-}
-.menuButton{
-  width: 100%;
-  background-color: #77B7FF
 }

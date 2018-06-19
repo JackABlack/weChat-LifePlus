@@ -1,12 +1,13 @@
 {
   "pages": [
+
     "pages/main/main",
     "pages/logs/logs",
     "pages/overview/overview",
-    "pages/timeline/timeline",
-    "pages/setting/setting",
+      "pages/timeline/timeline",
+"pages/setting/setting",
     "pages/profile/profile",
-    "pages/multi/multi",
+        "pages/multi/multi",
     "pages/index/index"
   ],
   "window": {
